@@ -26,11 +26,13 @@ if(isset($_POST["country"]) && strlen($_POST["country"]) >= 1) {
 </head>
 <body>
 
-<p>Nom officiel : <?php echo $dataCountryDecoded[0]["name"]["official"] ?></p>
-<p>Capital : <?php echo $dataCountryDecoded[0]["capital"][0] ?> </p>
-<p>Population : <?php echo $dataCountryDecoded[0]["population"] ?> </p>
-<p>Region : <?php echo $dataCountryDecoded[0]["region"] ?> </p>
-<p>Drapeau : <img src="<?php echo $dataCountryDecoded[0]["flags"]["png"] ?>"></p>
+<p>Nom officiel : <?php echo htmlspecialchars($dataCountryDecoded[0]["name"]["official"])?></p>
+<p>Capital : <?php echo htmlspecialchars($dataCountryDecoded[0]["capital"][0]) ?> </p>
+<p>Population : <?php echo htmlspecialchars($dataCountryDecoded[0]["population"]) ?> </p>
+<p>Region : <?php echo htmlspecialchars($dataCountryDecoded[0]["region"]) ?> </p>
+<p>Drapeau : <img src="<?php echo htmlspecialchars($dataCountryDecoded[0]["flags"]["png"]) ?>"></p>
+
+<a href="form-country.php">accueil</a>
 
 </body>
 </html>

@@ -2,18 +2,18 @@
 var_dump($_FILES);
 $target_directory = "uploads/";
 $target_file = $target_directory . uniqid() . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) ;
-$uploadOk = 1;
+$uploadOk = true;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 
  // vérifier le format des fichiers
 if ($imageFileType !== "jpeg" && $imageFileType !== "png"){
       echo "Désolé. Seul les fichiers au format jpeg et png sont acceptés";
-      $uploadOk = 0;
+      $uploadOk = false;
 }
 
 // On vérifie si $uploadOk est à 0, et on informe l'utilisateur
-if ($uploadOk === 0) {
+if (!$uploadOk) {
       echo "Désolé. Chargement échoué";
 
 // Sinon on lance le chargement

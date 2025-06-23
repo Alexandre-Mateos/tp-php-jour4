@@ -1,7 +1,7 @@
 <?php
 var_dump($_FILES);
 $target_directory = "uploads/";
-$target_file = $target_directory . uniqid() . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_directory . uniqid() . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) ;
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 

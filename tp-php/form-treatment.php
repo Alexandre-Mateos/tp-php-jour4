@@ -6,7 +6,6 @@ if(isset($_POST["country"]) && strlen($_POST["country"]) >= 1) {
       $dataCountry = @file_get_contents($countryRequest);
         if($dataCountry){
               $dataCountryDecoded = json_decode($dataCountry, true);
-              var_dump($dataCountryDecoded);
         }else{
               header("Location: http://localhost:8080/tp-php/form-country.php/?response=error1");
               exit();
@@ -27,12 +26,11 @@ if(isset($_POST["country"]) && strlen($_POST["country"]) >= 1) {
 </head>
 <body>
 
-<?php if(isset($dataCountryDecoded[0]["name"]["official"]) && strlen($dataCountryDecoded[0]["name"]["official"]) >= 1) : ?>
-<p> Nom officiel : <?php echo $dataCountryDecoded[0]["name"]["official"] ?></p>
-<?php else : ?>
-<p>Ce pays est inconnu</p>
-<?php endif; ?>
-
+<p>Nom officiel : <?php echo $dataCountryDecoded[0]["name"]["official"] ?></p>
+<p>Capital : <?php echo $dataCountryDecoded[0]["capital"][0] ?> </p>
+<p>Population : <?php echo $dataCountryDecoded[0]["population"] ?> </p>
+<p>Region : <?php echo $dataCountryDecoded[0]["region"] ?> </p>
+<p>Drapeau : <img src="<?php echo $dataCountryDecoded[0]["flags"]["png"] ?>"></p>
 
 </body>
 </html>

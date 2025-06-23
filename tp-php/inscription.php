@@ -42,7 +42,7 @@ if (
 
       <p>Bonjour <?php echo htmlspecialchars($_POST["prenom"]) ?> <?php echo htmlspecialchars($_POST["nom"]) ?> !</p>
 
-      <p> Vous êtes un(e) <?php echo $_POST["genre"] ?> et vous aimez coder en :
+      <p> Vous êtes un(e) <?php echo htmlspecialchars($_POST["genre"]) ?> et vous aimez coder en :
             <?php echo implode( ", " ,$_POST["langage"]) ?> .</p>
 
       <p>Voici ce que vous avez écrit à propos de vous :</p>

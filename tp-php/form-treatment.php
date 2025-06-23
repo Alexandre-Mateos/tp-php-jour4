@@ -19,7 +19,7 @@ if(isset($_POST["country"]) && strlen($_POST["country"]) >= 1) {
 
         if($dataCountry){
               $dataCountryDecoded = json_decode($dataCountry, true);
-              
+
         }else{
               header("Location: http://localhost:8080/tp-php/form-country.php/?response=error1");
               exit();

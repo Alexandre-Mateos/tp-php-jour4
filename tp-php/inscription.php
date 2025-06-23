@@ -40,7 +40,6 @@ if (
       && (isset($_POST["my-text"]) && strlen($_POST["my-text"]) >= 1)
 ) : ?>
 
-
       <p>Bonjour <?php echo htmlspecialchars($_POST["prenom"]) ?> <?php echo htmlspecialchars($_POST["nom"]) ?> !</p>
 
       <p> Vous êtes un(e) <?php echo $_POST["genre"] ?> et vous aimez coder en :
@@ -50,6 +49,7 @@ if (
       <p>"<?php echo htmlspecialchars($_POST["my-text"]) ?>"</p>
 
 <?php else : ?>
+
       <p>Vous devez remplir tous les champs !</p>
 
 <?php endif; ?>

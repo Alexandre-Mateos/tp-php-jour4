@@ -4,9 +4,14 @@ if(isset($_POST["country"]) && strlen($_POST["country"]) >= 1){
       $countryRequest = "https://restcountries.com/v3.1/name/" . $country . "?fullText=true";
       $dataCountry = file_get_contents($countryRequest);
       $dataCountryDecoded = json_decode($dataCountry, true);
-      var_dump($dataCountryDecoded);
+//      var_dump($dataCountryDecoded);
+      if(isset($dataCountryDecoded[0]["name"]["common"]) && strlen($dataCountryDecoded[0]["name"]["common"]) >= 1){
+            echo $dataCountryDecoded[0]["name"]["common"];
+      }else{
+            echo "on a un problème";
+      }
 
 }else{
-
+      echo "Vous devez remplir le champs";
 }
 ?>

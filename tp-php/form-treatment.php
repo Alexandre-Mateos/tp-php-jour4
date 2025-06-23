@@ -1,10 +1,19 @@
 <?php
 if(isset($_POST["country"]) && strlen($_POST["country"]) >= 1) {
+
       $country = trim(htmlspecialchars($_POST["country"]));
       $countryRequest = "https://restcountries.com/v3.1/name/" . $country . "?fullText=true";
-      $dataCountry = file_get_contents($countryRequest);
-      $dataCountryDecoded = json_decode($dataCountry, true);
-      var_dump($dataCountryDecoded);
+      $dataCountry = @file_get_contents($countryRequest);
+        if($dataCountry){
+              $dataCountryDecoded = json_decode($dataCountry, true);
+              var_dump($dataCountryDecoded);
+        }else{
+              header("Location: http://localhost:8080/tp-php/form-country.php/?response=error1");
+              exit();
+        }
+}else{
+    header("Location: http://localhost:8080/tp-php/form-country.php/?response=error2");
+    exit();
 }
 ?>
 <!doctype html>
